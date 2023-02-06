@@ -182,6 +182,22 @@ class Trajectory {
     
         self.runCalc()
     }
+    
+    /*
+    DEBUG FUNCTIONS
+    */
+    // Debug output, shows all variables and values
+    var debugDescription: String {
+        let mirror = Mirror(reflecting: self)
+        var debugString = "---------------------------------------"
+        mirror.children.forEach {
+            debugString += "\n\($0.label ?? ""): \($0.value)"
+        }
+        
+        debugString += "\n---------------------------------------"
+        
+        return debugString
+    }
 }
 
 // Example use
